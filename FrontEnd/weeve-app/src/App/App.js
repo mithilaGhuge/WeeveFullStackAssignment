@@ -1,10 +1,11 @@
-import React from 'react';
-import './App.css';
-import { makeStyles } from '@material-ui/core';
-import Layout from '../Components/Layout';
+import React from 'react'
+import makeStyles from '@material-ui/core'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import DataService from '../Components/DataService';
-import PageName from '../Components/PageName';
+
+import Layout from '../Components/layout'
+import PageName from '../Components/pageName'
+import DataService from '../Components/dataService'
+
 
 function App() {
   return (

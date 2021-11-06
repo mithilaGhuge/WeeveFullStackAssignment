@@ -1,6 +1,6 @@
-import { AppBar, Toolbar } from '@material-ui/core';
-import React from 'react';
-import { withStyles } from "@material-ui/core";
+import React from 'react'
+import { AppBar, Toolbar, Typography, withStyles } from '@material-ui/core'
+
 const style = {
     header: {
         display: 'flex',
@@ -18,10 +18,9 @@ const PageName=(props)  => {
     return (
         <AppBar position="static" className={classes.header} >
             <Toolbar>
-                <h3 className={classes.headerTitleStyle}> Full Stack Assignment</h3>
+                <Typography className={classes.headerTitleStyle}> Full Stack Assignment</Typography>
             </Toolbar>
         </AppBar>
-    
     )
 }
 export default withStyles( style )( PageName );

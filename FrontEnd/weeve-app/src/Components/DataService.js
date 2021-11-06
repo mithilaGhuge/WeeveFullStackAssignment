@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { makeStyles, Container, Grid, IconButton } from "@material-ui/core";
-import { Pageview } from "@material-ui/icons";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import { DataGrid,GridColDef } from "@mui/x-data-grid";
-import { FormControlLabel } from "@material-ui/core";
-import { Create,Delete} from "@material-ui/icons";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import NearMeIcon from '@mui/icons-material/NearMe';
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-import { borders } from '@mui/system';
+import borders from '@mui/system'
+import Alert from '@mui/material/Alert'
+import Stack from '@mui/material/Stack'
+import React, { useEffect, useState } from "react"
+import NearMeIcon from '@mui/icons-material/NearMe'
+import { DataGrid, GridColDef } from "@mui/x-data-grid"
+import MoreVertIcon from '@mui/icons-material/MoreVert'
+import FilterAltIcon from "@mui/icons-material/FilterAlt"
+import { Create, Delete, Pageview} from "@material-ui/icons"
+import { makeStyles, Container, Grid, IconButton, Typography, FormControlLabel } from "@material-ui/core"
 
 const userStyle = makeStyles({
   headerTitleStyle: {
@@ -18,6 +16,7 @@ const userStyle = makeStyles({
   },
   subHeaderSpacing: {
     paddingLeft: 100,
+    paddingTop: 10,
     color: "#4A4A4A",
     opacity: 1,
     fontSize: 14,
@@ -37,17 +36,11 @@ const userStyle = makeStyles({
   columnHeaderStyle:{
       border: "#4A4A4A",
       border:"rounded-circle"
-  
-
   }
 });
 
 // icon
 const MatEdit = ({ index }) => {
-  const handleEditClick = () => {
-    // Alert
-    alert('hi')
-  };
   return (
     <FormControlLabel
       control={
@@ -82,7 +75,6 @@ const MatEdit = ({ index }) => {
 };
 export default function DataService() {
   const classes = userStyle();
-
   const columns : GridColDef[] = [
     { field: "serviceName", headerName: "NAME", width: 300, headerAlign: 'center'},
     { field: "created", headerName: "CREATED", width: 150, headerAlign: 'center'},
@@ -138,21 +130,21 @@ export default function DataService() {
       body: JSON.stringify(record), // body data type must match "Content-Type" header
     });
     console.log(response);
-    const newRecord = await response.json(); // parses JSON response into native JavaScript objects
-    setState((prevState) => [...prevState, newRecord]);
   };
 
   return (
     <Container>
       <div>
-        <h3 className={classes.headerTitleStyle}>Your Data Services</h3>
+        <Typography className={classes.headerTitleStyle}>
+        Your Data Services
+        </Typography> 
       </div>
       <Grid container direction="row">
         <Grid item>
-          <p className={classes.subHeaderSpacing}>
+          <Typography className={classes.subHeaderSpacing}>
             Click on the rocket to deploy the data service you would like to
             send down to your weeve Edge-Nodes
-          </p>
+          </Typography>
         </Grid>
         <Grid className={classes.iconStyle}>
           <IconButton onClick={() => alert("You Clicked on Search Icon")}>
